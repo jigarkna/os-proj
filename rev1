@@ -1,0 +1,6 @@
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+  int k,p,q,avail[4],max[5][4],allot[5][4],need[5][4];
+}
