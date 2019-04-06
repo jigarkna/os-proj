@@ -2,53 +2,53 @@
 #include<conio.h>
 int main()
 {
-  int pro,res,k=0,p=0,q=0;
+ 	int pro,res,k=0,p=0,q=0;
 	printf("Enter Process Count : ");
 	scanf("%d",&pro);
-  printf("\nEnter Resources Count : ");
-  scanf("%d",&res);
-  int av[res],max[pro][res],given[pro][res],need[pro][res],done[pro];
-  for(int i=0;i<pro;i++)
-  {
-    done[i]=0;
-  }
-     printf("\nEnter Available Instances : ");
-   for(int i=0;i<res;i++)
-    {
-     scanf("%d",&av[i]);
-    } 
-   printf("\nEnter Maximum Instances : ");
-    for(int i=0;i<pro;i++)
-     {
-        printf("P[%d] has : \n",i);
-        for(int j=0;j<res;j++)
-         {
-            scanf("%d",&max[i][j]);               
-         } 
-     }     
-    printf("\nEnter the Instances already given : "); 
-
-     for(int i=0;i<pro;i++)
-     {
-        printf("\nP[%d] has : ",i);
-        for(int j=0;j<res;j++)
-         {
-            scanf("%d",&given[i][j]);
-            need[i][j]=max[i][j]-given[i][j];
-         }  
-     }
-    for(p=0;p<pro;)
-    {
-    	q=p;
-    	for(int i=0;i<pro;i++)
-    {
-       for(int j=0;j<res;j++)
-        {
-            if(need[i][j]<av[j])
-              {
-                 k++;
-              }   
+ 	printf("\nEnter Resources Count : ");
+	scanf("%d",&res);
+	int av[res],max[pro][res],given[pro][res],need[pro][res],done[pro];
+	for(int i=0;i<pro;i++)
+	  {
+	  	done[i]=0;
+	  }
+  	printf("\nEnter Available Instances : ");
+	for(int i=0;i<res;i++)
+    	{
+     		scanf("%d",&av[i]);
+    	} 
+	printf("\nEnter Maximum Instances : ");
+	for(int i=0;i<pro;i++)
+     	{
+        	printf("P[%d] has : \n",i);
+        	for(int j=0;j<res;j++)
+         	{
+            		scanf("%d",&max[i][j]);               
+         	} 
         }     
+   	printf("\nEnter the Instances already given : "); 
+	for(int i=0;i<pro;i++)
+     	{
+        	printf("\nP[%d] has : ",i);
+        	for(int j=0;j<res;j++)
+        	{
+            		scanf("%d",&given[i][j]);
+            		need[i][j]=max[i][j]-given[i][j];
+        	}  
+    	}
+ 	printf("\nSafe state for the System is : ");
+	for(p=0;p<pro;)
+	{
+    		q=p;
+    		for(int i=0;i<pro;i++)
+    		{
+       			for(int j=0;j<res;j++)
+        		{
+            			if(need[i][j]<av[j])
+              			{
+                 		k++;
+              			}   
+        		}     
         if((k==res)&&(done[i]==0))
          {
            printf("P%d\t",i);
@@ -63,7 +63,8 @@ int main()
     } 
          if(p==q)
          {
-         break;
+	 	printf("\nDEADLOCK occured!!");
+         	break;
 	 }  
  }
  getch();
