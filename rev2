@@ -2,4 +2,16 @@
 #include<conio.h>
 int main()
 {
+  int n;
+  printf("Enter the number : ");  
+  scanf("%d",&n);
+  for(int i=1;i<=n;i++)
+  {
+    for(int j=2;i<=i/2;j++)
+    {
+             if(i%j==0)
+             {
+                 break;
+             }
+        }
 }
