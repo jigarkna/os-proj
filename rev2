@@ -1,17 +1,36 @@
+#include<pthread.h>
 #include<stdio.h>
-#include<conio.h>
+void *f1(void *c)
+{
+int *d=(int*)c;
+
+int n,b,i;
+	for(b=2;b<=*d;b++)
+	{
+	
+ 	 i=2;
+ 	while(b%i!=0)
+  	{
+  		i++;
+  	}
+  	
+ 	if(i==b)
+  	{
+		printf("%d\n",b) ;
+		}
+		
+  }
+
+}
+
 int main()
 {
-  int n;
-  printf("Enter the number : ");  
-  scanf("%d",&n);
-  for(int i=1;i<=n;i++)
-  {
-    for(int j=2;i<=i/2;j++)
-    {
-             if(i%j==0)
-             {
-                 break;
-             }
-        }
+int c;
+printf("Enter the no upto which do you want to print prime no \n");
+scanf("%d",&c);
+pthread_t th1;
+pthread_create(&th1,NULL,f1,&c);
+pthread_join(th1,NULL);
+
+return 0;
 }
